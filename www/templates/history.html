@@ -1,0 +1,31 @@
+<ion-view>
+  <ion-content>
+    <div class="row">
+      <button class="button button-positive col col-50" ng-click="tab('bid');">
+      BID
+    </button>
+    <button class="button button-positive col col-50" ng-click="tab('ask');">
+      ASK
+    </button>
+    </div>
+<div class="row" ng-repeat = "data in balance" ng-if = 'bidTab'>
+<div class="col col-50" ng-if="data.statusName == 'Successfull'">
+Sell<br>date:<br>{{data.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}
+</div>
+<div class="col col-50" ng-if="data.statusName == 'Successfull'">
+      Amount:{{data.totalbidAmountINR}}
+  <br>price:{{data.bidRate}}
+</div>
+</div>
+<div class="row" ng-repeat = "data in askBalance" ng-if = 'askTab'>
+<div class="col col-50" ng-if="data.statusName == 'Successfull'">
+Sell<br>date:<br>{{data.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}
+</div>
+<div class="col col-50" ng-if="data.statusName == 'Successfull'">
+      Amount:{{data.totalaskAmountINR}}
+  <br>price:{{data.askRate}}
+</div>
+
+</div>
+</ion-view>
+</ion-content>

@@ -1,0 +1,55 @@
+<ion-view>
+  <ion-content>
+    <div class="list">
+
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Currency
+    </div>
+    <select ng-model="valueOfCurrency" ng-options="currency for currency in currencies" ng-change="checkingCurrency(valueOfCurrency);">
+</select>
+    <!-- <select ng-repeat="currency in currencies" ng-model="currency">
+    </select> -->
+  </label>
+
+</div>
+    <center>
+    <div class="light-blue darken-4 white-text padding">
+      <div>
+        <h4 class="white-text no-margin text-roboto">
+          <span class="crypto-icon crypto-vault-symbol">Ƀ&nbsp;</span>{{balance | number:5}}</h4>
+      </div>
+
+      <div class="row no-margin">
+        <div class="col col-100  white-text">
+        </div>
+      </div>
+    </div>
+    <div class="list">
+      <div class="item item-button-right">
+      <span style="color:blue">Withdrawal amount </span>
+        <span class="button">
+          <i class="ion-arrow-graph-up-right"> My limit</i>
+        </span>
+      </div>
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="$ 0.00">
+      </label>
+    </div>
+    <div class="item item-button-right">
+    <span style="color:blue">Commission</span>
+      <span class="button">
+      $0.00
+      </span>
+    </div><hr>
+    <div class="item item-button-right">
+    <span style="color:blue">Total amount</span>
+      <span class="button">
+        $0.00
+      </span>
+    </div>
+  </div>
+  </center>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,21 @@
+<ion-view>
+  <ion-content>
+    <div class="list">
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Department</span>
+    <input type="text" placeholder="IT/HARDWARE/..." ng-model="department">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Title</span>
+    <input type="text" placeholder="title of problem" ng-model="title">
+  </label>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Description</span>
+    <input type="text" placeholder="Description of your problem" ng-model="description">
+  </label>
+  <button class="button button-positive col col-50" ng-click="submit(department,title,description);">
+  Submit
+  </button>
+</div>
+</ion-view>
+</ion-content>

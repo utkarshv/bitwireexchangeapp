@@ -1,0 +1,32 @@
+<ion-view>
+  <ion-content>
+    <div class="list">
+
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Currency
+    </div>
+    <select ng-model="valueOfCurrency" ng-options="currency for currency in currencies" ng-change="checkingCurrency(valueOfCurrency);">
+</select>
+    <!-- <select ng-repeat="currency in currencies" ng-model="currency">
+    </select> -->
+  </label>
+
+</div>
+    <center>
+    <div class="light-blue darken-4 white-text padding">
+      <div>
+        <h4 class="white-text no-margin text-roboto">
+          <span class="crypto-icon crypto-vault-symbol">Ƀ&nbsp;</span>{{balance | number:5}} <br><span style="font-size:20px;">scan QR</scan></h4>
+
+        <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl={{user.userBTCAddress}}" alt="QR Code">
+      </div>
+      <div class="row no-margin">
+        <div class="col col-100  white-text">
+          <center> <small style="color: #a9a9a9">{{address}} </small></center>
+        </div>
+      </div>
+    </div>
+  </center>
+  </ion-content>
+</ion-view>

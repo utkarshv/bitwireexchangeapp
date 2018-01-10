@@ -1,0 +1,42 @@
+<ion-view>
+  <ion-content>
+<div class="row">
+  <button class="button button-positive col col-50" ng-click="tab('bid');">
+  BID
+</button>
+<button class="button button-positive col col-50" ng-click="tab('ask');">
+  ASK
+</button>
+</div>
+<div class="row" ng-repeat = "data in balance" ng-if = 'bidTab'>
+<div class="col col-30" ng-if="data.statusName == 'Pending'">
+Sell<br>date:<br>{{data.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}
+</div>
+<div class="col col-50" ng-if="data.statusName == 'Pending'">
+      Amount:{{data.totalbidAmountINR}}
+  <br>price:{{data.bidRate}}
+  <br>total:{{data.totalbidAmountINR * data.bidRate}}
+  <br>remaining:{{data.bidAmountINR}}
+</div>
+<div class="col col-25" ng-if="data.statusName == 'Pending'">
+ <button class="button button-icon icon ion-ios7-minus-outline"
+                ng-click="removeBid({{data.id}});"></button>
+</div>
+</div>
+<div class="row" ng-repeat = "data in askBalance" ng-if = 'askTab'>
+<div class="col col-30" ng-if="data.statusName == 'Pending'">
+Sell<br>date:<br>{{data.createdAt | date:"MM/dd/yyyy 'at' h:mma"}}
+</div>
+<div class="col col-50" ng-if="data.statusName == 'Pending'">
+      Amount:{{data.totalaskAmountINR}}
+  <br>price:{{data.askRate}}
+  <br>total:{{data.totalaskAmountINR * data.askRate}}
+  <br>remaining:{{data.askAmountINR}}
+</div>
+<div class="col col-25" ng-if="data.statusName == 'Pending'">
+ <button class="button button-icon icon ion-ios7-minus-outline"
+                ng-click="removeAsk({{data.id}});"></button>
+</div>
+</div>
+</ion-view>
+</ion-content>

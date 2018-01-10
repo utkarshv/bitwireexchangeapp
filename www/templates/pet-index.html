@@ -1,19 +1,159 @@
-<!-- 
+<!--
   This template gets placed in the Pet tab's <ion-nav-view> directive.
-  It was wired up in the app config (app.js) 
+  It was wired up in the app config (app.js)
   The 'pets' data comes from its $scope within PetIndexCtrl (controller.js)
 -->
-<ion-view title="Pet Information">
+<ion-view>
   <ion-content>
+<button class="button button-block button-positive">
+  Limit (bid/ask)
+</button>
+<table>
+  <tr>
+    <td>
+  <div class="item item-input-inset" style="width: 100%;">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="vol. of {{value.currenc}}" ng-model="buyRate">
+    </label>
+  </div>
+  <button class="button button-small" ng-click="buy(buyRate,sellRate);">
+    buy
+  </button>
+</td>
+<td>
+  <div class="item item-input-inset" style="width: 100%;">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="price in bch" ng-model="sellRate"  ng-show="bch">
+      <input type="text" placeholder="price in btc" ng-model="sellRate" ng-show="btc">
+      <input type="text" placeholder="price in ltc" ng-model="sellRate" ng-show="ltc">
+    </label>
+
+  </div>
+  <button class="button button-small" ng-click="sell(buyRate,sellRate);">
+    sell
+  </button>
+</td>
+</tr>
+</table>
 
     <ion-list>
+      <select ng-model="value.currenc" ng-options="item for item in currencies"  ng-change="change()">
+           </select>
+      </ion-item>
+    </ion-list>
+    <div class="row" ng-show="btc">
+      <div class="col col-50">
+        <table class="upperTable">
+          <tr>
+            <td>Bid</td>
+            <td>total {{value.currenc}} <sub>{{bidSum}}</sub></td>
+            <tr>
+        </table>
+        <div style="border: 1px solid #dddddd;">
+          <table ng-repeat="bid in bids">
+            <tr>
+              <td>{{bid.totalbidAmountBTC}}</td>
+              <td>{{bid.totalbidAmountINR}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col col-50">
+        <table class="upperTable">
+          <tr>
+            <td>Ask</td>
+            <td>total {{value.currenc}} <sub>{{askSum}}</sub></td>
+            <tr>
+        </table>
+        <div style="border: 1px solid #dddddd;">
+          <table ng-repeat="inr in inrs">
+            <tr>
+              <td>{{inr.totalaskAmountBTC}}</td>
+              <td>{{inr.totalaskAmountINR}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row" ng-show="bch">
+      <div class="col col-50">
+        <table class="upperTable">
+          <tr>
+            <td>BCH Bid</td>
+            <td>total {{value.currenc}} <sub>{{bidSum}}</sub></td>
+            <tr>
+        </table>
+        <div style="border: 1px solid #dddddd;">
+          <table ng-repeat="bid in bids">
+            <tr>
+              <td>{{bid.totalbidAmountBTC}}</td>
+              <td>{{bid.totalbidAmountINR}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col col-50">
+        <table class="upperTable">
+          <tr>
+            <td>Ask</td>
+            <td>total {{value.currenc}}<sub>{{askSum}}</sub></td>
+            <tr>
+        </table>
+        <div style="border: 1px solid #dddddd;">
+          <table ng-repeat="inr in inrs">
+            <tr>
+              <td>{{inr.totalaskAmountBTC}}</td>
+              <td>{{inr.totalaskAmountINR}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row" ng-show="ltc">
+      <div class="col col-50">
+        <table class="upperTable">
+          <tr>
+            <td>LTC Bid</td>
+            <td>total {{value.currenc}}<sub>{{bidSum}}</sub></td>
+            <tr>
+        </table>
+        <div style="border: 1px solid #dddddd;">
+          <table ng-repeat="bid in bids">
+            <tr>
+              <td>{{bid.totalbidAmountBTC}}</td>
+              <td>{{bid.totalbidAmountINR}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col col-50">
+        <table class="upperTable">
+          <tr>
+            <td>Ask</td>
+            <td>total {{value.currenc}}<sub>{{askSum}}</sub></td>
+            <tr>
+        </table>
+        <div style="border: 1px solid #dddddd;">
+          <table ng-repeat="inr in inrs">
+            <tr>
+              <td>{{inr.totalaskAmountBTC}}</td>
+              <td>{{inr.totalaskAmountINR}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- <ion-list>
 
       <ion-item ng-repeat="pet in pets" type="item-text-wrap" href="#/tab/pet/{{pet.id}}">
         <h3>{{pet.title}}</h3>
         <p>{{pet.description}}</p>
       </ion-item>
-      
-    </ion-list>
+
+    </ion-list> -->
 
   </ion-content>
 </ion-view>
